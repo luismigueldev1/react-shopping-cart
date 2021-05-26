@@ -59,7 +59,7 @@ export default function OrderStatus() {
               <hr />
               <p>
                 <small>
-                  <strong>Cantidad: </strong>
+                  <strong>Tarjeta: </strong>
                   {store.payment.card}
                   <br />
                   <strong> Dirección: </strong>
