@@ -59,7 +59,7 @@ exports[`Pruebas en <App/> Debe de mostrarse correctamente  1`] = `
       className="row justify-content-center align-items-center"
     >
       <div
-        className="col-4  d-flex flex-column mt-5"
+        className="col-sm-10 col-md-4  d-flex flex-column mt-5"
       >
         <h3
           className="text-center"
