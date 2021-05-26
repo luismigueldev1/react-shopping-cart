@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
 import CheckoutList from "../../components/CheckoutList";
 import { StoreContext } from "../../context/StoreContext";
+import { getTotalPrice } from "../../utils/getTotalPrice";
 
 export default function CheckoutPage({ history }) {
   const { store } = useContext(StoreContext);
 
   const handleGoToPayment = () => {
+    if (totalPrice === 0) {
+      return alert("Debe de añadir almenos 1 producto");
+    }
     history.push("/paymentmethod");
   };
+
+  const totalPrice = getTotalPrice(store.order);
+
   return (
     <div className="container m">
       <div className="row justify-content-center align-items-center">
@@ -21,22 +28,36 @@ export default function CheckoutPage({ history }) {
 
       <div className="row justify-content-center align-items-start">
         <div className="col-3 ">
-          {store.order.length >= 1 &&
-            store.order.map((item) => (
-              <p className="text-end" key={item.productId}>
-                <small>
-                  {item.quantity} - {item.productName}
-                </small>
+          {store.order.length >= 1 ? (
+            store.order.map((item) => {
+              if (item.quantity === 0) {
+                return "";
+              } else {
+                return (
+                  <p className="text-end" key={item.productId}>
+                    <small>
+                      {item.quantity} - {item.productName}
+                    </small>
+                  </p>
+                );
+              }
+            })
+          ) : (
+            <p></p>
+          )}
+
+          {totalPrice !== 0 ? (
+            <>
+              <hr />
+              <p className="text-end">
+                <strong>
+                  Total:
+                  {store.order[0].totalPrice + store.order[1].totalPrice} $
+                </strong>
               </p>
-            ))}
-          <hr />
-          {(store.order[0].totalPrice || store.order[1].totalPrice) && (
-            <p className="text-end">
-              <strong>
-                Total:
-                {store.order[0].totalPrice + store.order[1].totalPrice} $
-              </strong>
-            </p>
+            </>
+          ) : (
+            <p></p>
           )}
         </div>
         <div className="col-4 text-end">

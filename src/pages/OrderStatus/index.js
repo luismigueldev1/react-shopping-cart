@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
+import { getTotalPrice } from "../../utils/getTotalPrice";
 
 export default function OrderStatus() {
   const { store } = useContext(StoreContext);
-  const total = store.order[0].totalPrice + store.order[1].totalPrice;
+  const total = getTotalPrice(store.order);
   const isCorrect = total > 1000 ? false : true;
   return (
     <div className="container m">

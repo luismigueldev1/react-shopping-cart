@@ -30,7 +30,6 @@ export const initialStore = {
       quantity: 1,
       totalPrice: 200,
     },
-
     {
       productId: "123456789",
       productName: "Laptop Modelo2",
