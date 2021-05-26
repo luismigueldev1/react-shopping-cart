@@ -40,11 +40,11 @@ export default function CheckoutListItem({ product }) {
   return (
     <div className="bg-white p-3 shadow-sm mb-2 ">
       <div className="row">
-        <div className="col-3">
+        <div className="col-sm-12 col-md-3">
           <img src={product.imageSrc} alt={product.name} />
         </div>
 
-        <div className="col-6">
+        <div className="col-sm-12 col-md-6">
           <p>
             <strong> {product.name}</strong>
           </p>
@@ -54,7 +54,7 @@ export default function CheckoutListItem({ product }) {
           </p>
         </div>
 
-        <div className="col d-flex flex-column justify-content-between">
+        <div className="col-sm-12 col-md d-flex flex-column justify-content-between">
           <div className="prices ">
             <p className="text-end mb-1">
               <small>

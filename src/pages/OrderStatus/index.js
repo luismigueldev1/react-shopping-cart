@@ -9,18 +9,18 @@ export default function OrderStatus() {
   return (
     <div className="container m">
       <div className="row justify-content-center ">
-        <div className="col-4  d-flex flex-column mt-5 ">
+        <div className="col-sm-12 col-md-4  d-flex flex-column mt-5 ">
           {isCorrect ? (
             <>
               <img src="/images/happy.png" alt="" />
-              <p class="text-center mt-3">
+              <p className="text-center mt-3">
                 Genial su compra se ha realizado correctamente
               </p>
             </>
           ) : (
             <>
               <img src="/images/sad.png" alt="" />
-              <p class="text-center mt-3">
+              <p className="text-center mt-3">
                 Lo sentimos no podemos procesar su compra, <br />
                 excede su limite de saldo
               </p>
@@ -29,9 +29,9 @@ export default function OrderStatus() {
         </div>
       </div>
       <div className="row justify-content-center align-items-center">
-        <div className="col-8 bg-white rounded shadow-sm">
+        <div className="col-sm-12 col-md-8 bg-white rounded shadow-sm">
           <div className="row">
-            <div className="col-6">
+            <div className="col-sm-12 col-md-6 mt-2">
               <h5 className="text-center">Orden</h5>
               <hr />
               {store.order.map((item) => {
@@ -39,7 +39,7 @@ export default function OrderStatus() {
                 }
                 return (
                   <div key={item.productId} className="d-flex ">
-                    <p className="mb-0">
+                    <p className="">
                       <small>
                         <strong>Cantidad: </strong>
                         {item.quantity}
@@ -54,17 +54,24 @@ export default function OrderStatus() {
               })}
             </div>
 
-            <div className="col-6">
+            <div className="col-sm-12 col-md-6 mt-2">
               <h5 className="text-center">Metodo de pago</h5>
               <hr />
               <p>
                 <small>
                   <strong>Tarjeta: </strong>
                   {store.payment.card}
-                  <br />
+                </small>
+              </p>
+              <p>
+                <small>
                   <strong> Dirección: </strong>
                   {store.payment.address}
-                  <br />
+                </small>
+              </p>
+
+              <p>
+                <small>
                   <strong> Precio total: </strong>
                   {total} $
                 </small>

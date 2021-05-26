@@ -18,7 +18,7 @@ export default function CheckoutPage({ history }) {
   return (
     <div className="container m">
       <div className="row justify-content-center align-items-center">
-        <div className="col-7  d-flex flex-column mt-5">
+        <div className="col-sm-12 col-md-7  d-flex flex-column mt-5">
           <h3 className="text-center">Carrito de compras</h3>
 
           <CheckoutList />
@@ -27,7 +27,7 @@ export default function CheckoutPage({ history }) {
       </div>
 
       <div className="row justify-content-center align-items-start">
-        <div className="col-3 ">
+        <div className="col-sm-12 col-md-3">
           {store.order.length >= 1 ? (
             store.order.map((item) => {
               if (item.quantity === 0) {
@@ -60,7 +60,7 @@ export default function CheckoutPage({ history }) {
             <p></p>
           )}
         </div>
-        <div className="col-4 text-end">
+        <div className="col-sm-12 col-md-4 text-end">
           <button className="btn btn-success" onClick={handleGoToPayment}>
             Comprar
           </button>

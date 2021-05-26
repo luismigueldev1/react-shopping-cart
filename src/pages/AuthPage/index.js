@@ -24,7 +24,7 @@ export default function AuthPage({ history }) {
   return (
     <div className="container">
       <div className="row justify-content-center align-items-center">
-        <div className="col-4  d-flex flex-column mt-5">
+        <div className="col-sm-10 col-md-4  d-flex flex-column mt-5">
           <h3 className="text-center">Autenticación</h3>
           {!isRegister ? (
             <>
